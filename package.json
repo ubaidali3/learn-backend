@@ -1,0 +1,17 @@
+{
+  "name": "pro1",
+  "version": "1.0.0",
+  "description": "This is my second time to start backend series",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Ubaid ali",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}
