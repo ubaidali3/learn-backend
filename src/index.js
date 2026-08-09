@@ -1,51 +1,61 @@
-import express from 'express'
 // require('dotenv').config()
-const app=express()
 
-app.get('/',(req,res)=>{
- res.send("your server was ready")
+import connectDB from "./db/index.js";
+import  dotenv from 'dotenv'
+
+dotenv.config({
+  path:'./.env'
 })
+connectDB()
 
-/// get a list of 5 jokes
 
-app.get('/api/jokes',(req,res)=>{
-  const jokes=[
-    {
-      id:1,
-      title:'A joke',
-      content:"jon bane a don"
-      
-    },
-    {
-      id:2,
-      title:'A second joke',
-      content:"jon bane a don"
-      
-    },
-    {
-      id:3,
-      title:'A third joke',
-      content:"jon bane a don"
-      
-    },
-    {
-      id:4,
-      title:'A fourth joke',
-      content:"jon bane a don"
-      
-    },
-    {
-      id:5,
-      title:'A last joke',
-      content:"jon bane a don"
-      
-    }
-  ]
-  res.send(jokes)
-})
 
-const port=process.env.PORT||3000
 
-app.listen(port,()=>{
-  console.log(`server are running on this server http://localhost:${port}/`)
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+import express from 'express'
+
+const app = express()
+
+;(async () => {
+  try {
+    await mongoose.connect(`${process.env.MONOGODB_URL}/${Db_NAME}`)
+
+    app.on("error", (err) => {
+      console.log("Error", err)
+      throw err
+    })
+
+    app.listen(process.env.PORT, () => {
+      console.log(`Server is running at http://localhost:${process.env.PORT}`)
+    })
+  } catch (error) {
+    console.log(error, "ERROR")
+  }
+})()
+
+
+*/
