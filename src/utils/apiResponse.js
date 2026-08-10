@@ -6,3 +6,6 @@ class Apirespone{
     this.success=statusCode  < 400        
   }
 }
+
+
+export {Apirespone}
