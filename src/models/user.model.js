@@ -31,9 +31,7 @@ const userSchema= new mongoose.Schema(
       type:String, /// cloudunary url
       required:true,
     },
-     avatar:{
-      type:String, /// cloudunary url
-    },
+  
     watchHistory:[
       {
         type:Schema.Types.ObjectId,
@@ -53,13 +51,14 @@ const userSchema= new mongoose.Schema(
 )              
 userSchema.pre("save",async function (next){
   if(!this.isModified('password')) return next()
-    this.password=bcrypt.hash(this.password,10)
+    this.password=await bcrypt.hash(this.password,10)
     next()
 })
 
 userSchema.method.isPasswordCorrect=async function (Password) {
   return await bcrypt.compare(Password,this.password)
-}          
+}  ///ye jo database main pasword hash store howa ha ye function on se match kre ga          
+
 
 
 userSchema.methods.generateAccessToken=function () {
@@ -73,7 +72,7 @@ userSchema.methods.generateAccessToken=function () {
     expiresIn:process.env.ACCESS_TOKEN_EXPIRY
   }
 )
-}
+}  //// "Mujhe protected resources access karne ki permission hai."
 userSchema.methods.generateRefreshToken=function () {
   return jwt.sign({
     _id:this._id,
