@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import { loginUser, logOutUser, registerUser } from '../controllers/user.controllers.js'
+import { loginUser, logOutUser, refreshAccessToken, registerUser } from '../controllers/user.controllers.js'
 import {upload} from '../middlewares/mullter.middleware.js'
 import { verifyJWT } from '../middlewares/auth.middleware.js'
 
@@ -19,6 +19,7 @@ routes.route('/register').post(
 
   ///sercure route
 
-  routes.route('logout').post(verifyJWT, logOutUser)
+  routes.route('/logout').post(verifyJWT, logOutUser)
+  routes.route('/refresh-token').post(refreshAccessToken)
 
 export default routes

@@ -1,5 +1,5 @@
-import { ApiError } from "../utils/apiError";
-import { asyncHandler } from "../utils/asyncHandler";
+import { ApiError } from "../utils/apiError.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
 import jwt from 'jsonwebtoken'
 import {User} from '../models/user.model.js'
 //// ye jo lehka ha as it is lehkna ha Q k es main "bearer" main space zaroor dena hota ha or "Authorization" as it is lehkna hota ha es leye jo jesa lehka ha os ko wese he lehko

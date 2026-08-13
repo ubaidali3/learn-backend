@@ -55,7 +55,7 @@ userSchema.pre("save",async function (){
     
 })
 
-userSchema.method.isPasswordCorrect=async function (Password) {
+userSchema.methods.isPasswordCorrect=async function (Password) {
   return await bcrypt.compare(Password,this.password)
 }  ///ye jo database main pasword hash store howa ha ye function on se match kre ga          
 
